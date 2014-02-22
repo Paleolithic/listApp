@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>listApp</title>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,800' rel='stylesheet' type='text/css'>
+	
+	<link rel="stylesheet" type="text/css" href="./assets/stylesheets/base.css"/>
+	<link rel="stylesheet" type="text/css" href="./assets/stylesheets/skeleton.css"/>
+	<link rel="stylesheet" type="text/css" href="./assets/stylesheets/layout.css"/>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<!--[if IE]>
+	  <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+	<![endif]-->
+</head>
+<script type='text/javascript'>
+$(document).ready(function(){ 
+	
+	var slideout = $(".delete");
+	var name     = $("#list-name");
+	var notif    = $("#notifications");
+	var toggle   =  0;
+
+	$("#edit").click(function () {
+    // use cached object instead of searching
+    	
+    	if(toggle == 0){
+	        slideout.animate({
+	            right: '0px'
+	        }, {
+	            queue: false,
+	            duration: 500
+	        });
+
+	        notif.slideDown();
+	        toggle = 1;
+	    } else{
+	    	slideout.animate({
+	            right: '-117px'
+	        }, {
+	            queue: false,
+	            duration: 500
+	        });
+	        notif.slideUp();
+	        toggle = 0;
+	    }
+    });
+});
+</script>
+<body>
+<header class='container'>
+	<div class='sixteen columns'>
+		<!--img src='assets/images/cog.svg' id='cog'-->
+		<h4 class='left title'><a href='index.html'><</a></h4>
+		<h2 id='list-name'>List 1</h2>
+		<h4 class='right title'><a href='#' id='edit'>Edit</a></h4>
+	</div>
+	<div class='sixteen columns' id='notifications'>
+		<h3 class='left'>Notifications</h3>
+		<h3 class='right'>I/O</h3>
+	</div>
+</header>
+
+<div class='container content'>
+	<div class='sixteen columns item'>
+		<h3 class='item-title left'><a href='list.html'>Item 1</a></h3>
+		<div class='delete right'><h3><a href='#'>Delete</a></h3></div>
+		<div class='hider right'></div>
+	</div>
+	<div class='sixteen columns item'>
+		<h3 class='item-title left'><a href='list.html'>Item 1</a></h3>
+		<div class='delete right'><h3><a href='#'>Delete</a></h3></div>
+		<div class='hider right'></div>
+	</div>
+	<div class='sixteen columns item'>
+		<h3 class='item-title left'><a href='list.html'>Item 1</a></h3>
+		<div class='delete right'><h3><a href='#'>Delete</a></h3></div>
+		<div class='hider right'></div>
+	</div>
+	<div class='sixteen columns item'>
+		<h3 class='item-title left'><a href='list.html'>Item 1</a></h3>
+		<div class='delete right'><h3><a href='#'>Delete</a></h3></div>
+		<div class='hider right'></div>
+	</div>
+	<div class='sixteen columns item'>
+		<h3 class='item-title left'><a href='list.html'>Item 1</a></h3>
+		<div class='delete right'><h3><a href='#'>Delete</a></h3></div>
+		<div class='hider right'></div>
+	</div>
+	<div class='sixteen columns item'>
+		<h3 class='item-title left'><a href='list.html'>Item 1</a></h3>
+		<div class='delete right'><h3><a href='#'>Delete</a></h3></div>
+		<div class='hider right right'></div>
+	</div>
+	<div class='sixteen columns item'>
+		<h3 class='item-title left'><a href='list.html'>Item 1</a></h3>
+		<div class='delete right'><h3><a href='#'>Delete</a></h3></div>
+		<div class='hider right'></div>
+	</div>
+	<div class='sixteen columns item'>
+		<h3 class='item-title left'><a href='list.html'>Item 1</a></h3>
+		<div class='delete right'><h3><a href='#'>Delete</a></h3></div>
+		<div class='hider right'></div>
+	</div>
+	<div class='sixteen columns item'>
+		<h3 class='item-title left'><a href='list.html'>Item 1</a></h3>
+		<div class='delete right'><h3><a href='#'>Delete</a></h3></div>
+		<div class='hider right'></div>
+	</div>
+</div>
+</body>
+</html>

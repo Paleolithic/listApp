@@ -26,6 +26,7 @@
 		p{ margin: 0 0 21px 0;}
 		p.lead{ line-height: 28px;}
 
+
 	/* Blockquotes */
 		blockquote, blockquote p{line-height: 21px;}
 		blockquote {margin: 0 0 21px; padding: 7px 28px 0 19px;}
@@ -46,27 +47,100 @@
 			color: white;
 			text-shadow: none !important;
 		}
+
 /* SITE STYLES
  * ------------------------------------------------ */
-/* Add site styles here */
-/* For example: a { color: #000; } */
-	header{
-		height: 88px;
+	/* Add site styles here */
+	/* For example: a { color: #000; } */
 
-		svg{
-			width: 56px;
-			height: 56px;
+a{
+	text-decoration: none;
+}
 
-			position: relative;;
-			top: 50%;
-			margin: -28px 0 0 17px;
-			float: left;
+input{
+	width: 100% !important;
+}
+
+.left{
+	float: left;
+}
+
+.right{
+	float: right;
+}
+
+
+header{
+
+	height: 88px;
+
+	.title{
+		position: relative;
+		margin-top: 21px;
+		z-index: 1;
+	}
+
+	svg{
+		margin-top: 10px !important;
+	}
+
+	h2{
+		margin-top: 16px;
+		position: absolute;
+		left: 0;
+		right: 0;
+		text-align: center;
+	}
+
+	#notifications{
+		display: none;
+		border-bottom: 1px solid #CCCCCC;
+	}
+}
+
+.content{
+	margin-top: 21px;
+	
+	*{
+		font-weight: 300;
+	}
+	.item{
+		height: 63px;
+		border-bottom: 1px solid #CCCCCC;
+
+		h3{
+			margin: 14px 0;
+			padding-left: 7px;
+		}
+		
+		.delete, .hider{
+			width: 117px;
+			height: 100%;
+			right:-117px;
+		    
+		}
+		.delete{
+			position: relative;
+			background-color: #FE372D;
+
+			a{
+				color: white;
+			}	
 		}
 
-		h1{
-			text-align: center;
+		.hider{
+			position: absolute;
+			background-color: white;
+		}
+
+		.item-title:before{
+		  content:url("http://piq.codeus.net/static/media/userpics/piq_21506_25x25.png");
+		  margin-right: 7px;
 		}
 	}
+}
+
+
 
 /* PAGE STYLES
  * ------------------------------------------------ */

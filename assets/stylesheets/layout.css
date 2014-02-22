@@ -51,42 +51,42 @@ p.lead {
 }
 
 /* Blockquotes */
-/* line 30, ../sass/layout.scss */
+/* line 31, ../sass/layout.scss */
 blockquote, blockquote p {
   line-height: 21px;
 }
 
-/* line 31, ../sass/layout.scss */
+/* line 32, ../sass/layout.scss */
 blockquote {
   margin: 0 0 21px;
   padding: 7px 28px 0 19px;
 }
 
-/* line 33, ../sass/layout.scss */
+/* line 34, ../sass/layout.scss */
 hr {
   margin: 14px 0 28px;
 }
 
 /* Lists */
-/* line 36, ../sass/layout.scss */
+/* line 37, ../sass/layout.scss */
 ul, ol {
   margin-bottom: 21px;
 }
 
-/* line 37, ../sass/layout.scss */
+/* line 38, ../sass/layout.scss */
 li {
   line-height: 21px;
   margin-bottom: 14px;
 }
 
 /* Buttons */
-/* line 40, ../sass/layout.scss */
+/* line 41, ../sass/layout.scss */
 button {
   border: none;
   text-shadow: none !important;
 }
 
-/* line 44, ../sass/layout.scss */
+/* line 45, ../sass/layout.scss */
 button:hover {
   border: none;
   color: white;
@@ -97,22 +97,96 @@ button:hover {
  * ------------------------------------------------ */
 /* Add site styles here */
 /* For example: a { color: #000; } */
-/* line 53, ../sass/layout.scss */
+/* line 56, ../sass/layout.scss */
+a {
+  text-decoration: none;
+}
+
+/* line 60, ../sass/layout.scss */
+input {
+  width: 100% !important;
+}
+
+/* line 64, ../sass/layout.scss */
+.left {
+  float: left;
+}
+
+/* line 68, ../sass/layout.scss */
+.right {
+  float: right;
+}
+
+/* line 73, ../sass/layout.scss */
 header {
   height: 88px;
 }
-/* line 56, ../sass/layout.scss */
-header svg {
-  width: 56px;
-  height: 56px;
+/* line 77, ../sass/layout.scss */
+header .title {
   position: relative;
-  top: 50%;
-  margin: -28px 0 0 17px;
-  float: left;
+  margin-top: 21px;
+  z-index: 1;
 }
-/* line 66, ../sass/layout.scss */
-header h1 {
+/* line 83, ../sass/layout.scss */
+header svg {
+  margin-top: 10px !important;
+}
+/* line 87, ../sass/layout.scss */
+header h2 {
+  margin-top: 16px;
+  position: absolute;
+  left: 0;
+  right: 0;
   text-align: center;
+}
+/* line 95, ../sass/layout.scss */
+header #notifications {
+  display: none;
+  border-bottom: 1px solid #CCCCCC;
+}
+
+/* line 101, ../sass/layout.scss */
+.content {
+  margin-top: 21px;
+}
+/* line 104, ../sass/layout.scss */
+.content * {
+  font-weight: 300;
+}
+/* line 107, ../sass/layout.scss */
+.content .item {
+  height: 63px;
+  border-bottom: 1px solid #CCCCCC;
+}
+/* line 111, ../sass/layout.scss */
+.content .item h3 {
+  margin: 14px 0;
+  padding-left: 7px;
+}
+/* line 116, ../sass/layout.scss */
+.content .item .delete, .content .item .hider {
+  width: 117px;
+  height: 100%;
+  right: -117px;
+}
+/* line 122, ../sass/layout.scss */
+.content .item .delete {
+  position: relative;
+  background-color: #FE372D;
+}
+/* line 126, ../sass/layout.scss */
+.content .item .delete a {
+  color: white;
+}
+/* line 131, ../sass/layout.scss */
+.content .item .hider {
+  position: absolute;
+  background-color: white;
+}
+/* line 136, ../sass/layout.scss */
+.content .item .item-title:before {
+  content: url("http://piq.codeus.net/static/media/userpics/piq_21506_25x25.png");
+  margin-right: 7px;
 }
 
 /* PAGE STYLES
