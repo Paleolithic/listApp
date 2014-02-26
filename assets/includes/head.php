@@ -8,30 +8,13 @@
 	<link rel="stylesheet" type="text/css" href="./assets/stylesheets/base.css"/>
 	<link rel="stylesheet" type="text/css" href="./assets/stylesheets/skeleton.css"/>
 	<link rel="stylesheet" type="text/css" href="./assets/stylesheets/layout.css"/>
+	
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	
+	<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
 	<!--[if IE]>
 	  <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
 	<![endif]-->
 
 </head>
-
-<header class='container'>
-	<div class='sixteen columns'>
-		<!--img src='assets/images/cog.svg' id='cog'-->
-		<a href='index.html'><h4 class='left title'>Back</h4></a>
-		</svg></a>
-		<h2>New List</h2>
-		<a href='list.html'><h4 class='right title'>Done</h4></a>
-	</div>
-</header>
-
-<div class='container content'>
-	<div class='twelve columns offset-by-two'>
-		<input type='text' value='Title...'>
-	</div>
-	<div class='sixteen columns'>
-		<h3 class='left'>Notifications</h3>
-		<h3 class='right'>I/O</h3>
-	</div>
-</div>
-</body>
-</html>

@@ -13,6 +13,7 @@
 @import "vars"; // import _global_variables.scss
 @import "mixins"; // import _mixins.scss
 @import "compass/css3"; // import compass CSS3 mixins
+@import "compass/css3/user-interface";
 
 /* BASELINE CORRECTIONS
  * ----------------------------------------------- */
@@ -84,6 +85,10 @@ header{
 		margin-top: 10px !important;
 	}
 
+	a{
+		cursor: pointer;
+	}
+	
 	h2{
 		margin-top: 16px;
 		position: absolute;
@@ -104,6 +109,7 @@ header{
 	*{
 		font-weight: 300;
 	}
+
 	.item{
 		height: 63px;
 		border-bottom: 1px solid #CCCCCC;
@@ -138,9 +144,24 @@ header{
 		  margin-right: 7px;
 		}
 	}
+
+	#button {
+		height: 35px;
+		width: 63px;
+	    background: red;
+		cursor: pointer;
+		border: 1px solid black;
+		border-right-width: 14px;
+		
+		border-radius: 5px;  	
+    }
+
+	#button.down {
+	    background: green;
+		border-right-width: 1px;
+		border-left-width: 14px;
+    }
 }
-
-
 
 /* PAGE STYLES
  * ------------------------------------------------ */
