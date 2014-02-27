@@ -12,14 +12,14 @@
 	<div class='sixteen columns'>
 		<input type='text' value='Title...' onclick="this.value='';" class='listTitle'>
 		<h3 class='left'>Notifications</h3>
-        <a class='right' id="button" title="button" ></a>
+        <a class='right' id="slider" title="button" ></a>
 	</div>
 </div>
 <script type='text/javascript'>
 
     //Toggles down class to create toggle button look alike
     $(document).ready(function(){
-        $('a#button').click(function(){
+        $('a#slider').click(function(){
              $(this).toggleClass( "down", 500 );
         });
 
@@ -39,7 +39,7 @@
         else{
            
             $title    = $(".listTitle").val();
-            $notifbut = $("a#button");
+            $notifbut = $("a#slider");
 
             $notif = $notifbut.hasClass( "down" ) ? true : false;
 
@@ -59,7 +59,8 @@
                     }
                     //Moves to list page if successful
                     else{
-                        document.location = "list.php?list_id=" + $res;
+                        
+                        document.location = "list.php?list_id=" + res;
                     }
                 }
             });

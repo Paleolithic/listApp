@@ -148,52 +148,50 @@ header #notifications {
   display: none;
   border-bottom: 1px solid #CCCCCC;
 }
+/* line 105, ../sass/layout.scss */
+header #caret {
+  font-weight: 300;
+  font-size: 42px;
+}
 
-/* line 106, ../sass/layout.scss */
+/* line 111, ../sass/layout.scss */
 .content {
   margin-top: 21px;
 }
-/* line 109, ../sass/layout.scss */
+/* line 114, ../sass/layout.scss */
 .content * {
   font-weight: 300;
 }
-/* line 113, ../sass/layout.scss */
+/* line 118, ../sass/layout.scss */
 .content .item {
   height: 63px;
   border-bottom: 1px solid #CCCCCC;
+  overflow: hidden;
 }
-/* line 117, ../sass/layout.scss */
+/* line 123, ../sass/layout.scss */
 .content .item h3 {
   margin: 14px 0;
   padding-left: 7px;
 }
-/* line 122, ../sass/layout.scss */
-.content .item .delete, .content .item .hider {
+/* line 128, ../sass/layout.scss */
+.content .item .delete {
   width: 117px;
   height: 100%;
   right: -117px;
-}
-/* line 128, ../sass/layout.scss */
-.content .item .delete {
   position: relative;
   background-color: #FE372D;
 }
-/* line 132, ../sass/layout.scss */
+/* line 136, ../sass/layout.scss */
 .content .item .delete a {
   color: white;
 }
-/* line 137, ../sass/layout.scss */
-.content .item .hider {
-  position: absolute;
-  background-color: white;
-}
-/* line 142, ../sass/layout.scss */
+/* line 141, ../sass/layout.scss */
 .content .item .item-title:before {
   content: url("http://piq.codeus.net/static/media/userpics/piq_21506_25x25.png");
   margin-right: 7px;
 }
-/* line 148, ../sass/layout.scss */
-.content #button {
+/* line 149, ../sass/layout.scss */
+.content #slider {
   height: 35px;
   width: 63px;
   background: red;
@@ -202,11 +200,35 @@ header #notifications {
   border-right-width: 14px;
   border-radius: 5px;
 }
-/* line 159, ../sass/layout.scss */
-.content #button.down {
+/* line 160, ../sass/layout.scss */
+.content #slider.down {
   background: green;
   border-right-width: 1px;
   border-left-width: 14px;
+}
+/* line 166, ../sass/layout.scss */
+.content #newItem {
+  width: 95% !important;
+  height: 36px;
+  font-size: 28px;
+  margin: 10px 0;
+  border: none;
+}
+/* line 174, ../sass/layout.scss */
+.content input.deleteList {
+  background: none;
+  background-color: #FE372D;
+  color: white;
+  text-shadow: none;
+  font-size: 28px;
+  font-weight: 300;
+  height: 64px;
+  margin-top: 49px;
+  display: none;
+}
+/* line 185, ../sass/layout.scss */
+.content input.deleteList:hover {
+  background-color: #F87973 !important;
 }
 
 /* PAGE STYLES

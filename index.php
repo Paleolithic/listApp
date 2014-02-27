@@ -23,11 +23,14 @@ include("./assets/includes/header.php");
 	if ($v_TheResult) {
 
 		$num_rows = mysql_num_rows($v_TheResult);
+
 		//If no rows, suggests the creation of a list
 		if($num_rows == 0){
 			$v_result = "<div class='sixteen columns item'>";
 				$v_result .= "<h3>No lists yet, try making one!</h3>";
 			$v_result .= '</div>';
+
+			echo $v_result;
 		}
 		//Otherwise it prints all lists
 		else{
@@ -45,6 +48,7 @@ include("./assets/includes/header.php");
 	
 
 	?>
+
 </div>
 </body>
 </html>

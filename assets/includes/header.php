@@ -14,15 +14,26 @@
 				);
 		}
 		elseif ($page == "list") {
+		//Credential checking / mysql connection
+			include_once('credentials.php');
+			$con=mysql_connect("127.0.0.1",$username,$password)
+				or die("couldn't connect: ".mysql_error());
+			mysql_select_db("tjb2597");
+
+			$Query = "select * from lists WHERE list_id = '" . $_GET['list_id'] . "' LIMIT 1"; // set query to get everything from the db 
+
+			//Goes through query results
+			$v_TheResult = mysql_query ($Query); 
+			$v_row = mysql_fetch_array($v_TheResult);
 
 			$headerText = "<div class='sixteen columns'>
 					<!--img src='assets/images/cog.svg' id='cog'-->
-					<h4 class='left title'><a href='index.php'><</a></h4>
-					<h2 id='list-name'> ";
+					<h4 class='left title' id='caret'><a href='index.php'>&#60;</a></h4>
+					<h2 id='list-name'>List <span>";
 
-			$headerText .= ISSET($_GET['list_id']) ? "List " . $_GET['list_id'] : "N/A";
+			$headerText .= ISSET($_GET['list_id']) ? $_GET['list_id'] . "</span>: " . $v_row[1] : "N/A";
 			
-			$headerText .= "</h2>
+			$headerText .= "</span></h2>
 					<h4 class='right title'><a href='#' id='edit'>Edit</a></h4>
 				</div>
 				<div class='sixteen columns' id='notifications'>
@@ -47,7 +58,7 @@
 			echo("
 				<div class='sixteen columns'>
 					<!--img src='assets/images/cog.svg' id='cog'-->
-					<h4 class='left title'><a href='index.php'><</a></h4>
+					<h4 class='left title' ><a href='index.php'><</a></h4>
 					<h2>Settings</h2>
 				</div>"
 			);

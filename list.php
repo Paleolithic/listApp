@@ -27,41 +27,49 @@ include("./assets/includes/header.php");
 				$v_result = "<div class='sixteen columns item'>";
 					$v_result .= "<h3>No items yet, add one!</h3>";
 				$v_result .= '</div>';
+
+				//echo $v_result;
 			}
 			else{
 				while ($v_row = mysql_fetch_array($v_TheResult)) {
 			        //$v_records[] = $v_row;
 			        $v_result = "<div class='sixteen columns item'>";
 				      	$v_result .= "<h3 class='item-title left'>" . $v_row['item_name'] . "</h3>";
-				      	$v_result .= "<div class='delete right'><h3><a href='#'>Delete</a></h3></div>";
-				      	$v_result .= "<div class='hider right'></div>";  
+				      	$v_result .= "<div class='delete right'><h3><a href='#' class='deleteItem'>Delete</a></h3></div>";
 			        $v_result .= '</div>';
+					
+					echo $v_result;
 			    }
 			}
 		}
 
-		echo $v_result;
 	}
 
 	?>
 
-	<div class='sixteen columns'>
-		<input type='text' value='New item' onclick="this.value='';" class='listTitle'>
+	<div class='sixteen columns inputDiv'>
+		<span id='addItem'>
+			<a href='#' class='left' onclick='createItem();'><img style='margin-top:16px;' src='assets/images/plus.png' height='35px' width='35px'></a>
+			<input type='text' class='right' id='newItem' value='New item' onclick="this.value='';">
+		</span>
+		<input class='deleteList' type='button' value='Delete List'>
 	</div>
 </div>
 </body>
 </html>
 <script type='text/javascript'>
-$(document).ready(function(){ 
-	
-	var slideout = $(".delete");
-	var name     = $("#list-name");
-	var notif    = $("#notifications");
-	var toggle   =  0;
 
+
+	var toggle   =  0;
+	
 	$("#edit").click(function () {
-    // use cached object instead of searching
-    	
+    	// use cached object instead of searching
+		var slideout = $(".delete");
+		var name     = $("#list-name");
+		var notif    = $("#notifications");
+    	var del      = $(".deleteList");
+    	var addItem  = $("#addItem");
+
     	if(toggle == 0){
 	        slideout.animate({
 	            right: '0px'
@@ -71,6 +79,9 @@ $(document).ready(function(){
 	        });
 
 	        notif.slideDown();
+
+	        del.css("display", "inline");
+	        addItem.css("display", "none");
 	        toggle = 1;
 	    } else{
 	    	slideout.animate({
@@ -79,9 +90,113 @@ $(document).ready(function(){
 	            queue: false,
 	            duration: 500
 	        });
+	        
 	        notif.slideUp();
+
+			del.css("display", "none");
+	        addItem.css("display", "inline");
 	        toggle = 0;
 	    }
     });
-});
+
+	//Sends ajax call to createNewList.php with list information
+    function createItem(){
+
+        //Some minor validation
+        //TODO : mysql injection checking
+        if( $( "#newItem" ).val() == '' 
+         || $( "#newItem" ).val() == "New Item..." ){
+            
+            alert("Must enter title!");
+    
+        }
+        else{
+           
+            $title    = $( "#newItem" ).val();
+            $list_id  = $( "#list-name span").html();
+
+            //Sends title and notification preferences over to createNewList.php
+            $.ajax({
+                url: "createNewItem.php",
+                type: "POST",
+                data: { 
+                	"Title": $title,
+                	"List_id": $list_id,
+                },
+                success: function(res){
+
+                    if(res == "fail"){
+                        //alert(res);
+                        alert("Couldn't create list...sorry!");
+                    }
+                    //Moves to list page if successful
+                    else{
+                    	//alert(res);
+                        var $add = "<div class='sixteen columns item'>";
+                        $add += 	"<h3 class='item-title left'>" + $title + "</h3>";
+                        $add += 	"<div class='delete right'><h3><a href='#' class='deleteItem'>Delete</a></h3></div>";
+                        $add += "</div>";
+
+                        $( ".inputDiv" ).before($add);
+
+
+                        //document.location = "list.php?list_id=" + res;
+                    }
+                }
+            });
+
+            
+        }
+    }
+
+    $(".deleteList").click(function(){
+    	$list_id  = $( "#list-name span" ).html();
+    	
+    	//alert($item);
+		$.ajax({
+            url: "deleteList.php",
+            type: "POST",
+            data: { 
+            	"List_id": $list_id,
+            },
+            success: function(res){
+
+                if(res == "fail"){
+                    //alert(res);
+                    alert("Couldn't create list...sorry!");
+                }
+                //Moves to list page if successful
+                else{
+                    document.location = "index.php";
+                }
+            }
+        });
+    });
+
+    $(".deleteItem").click(function(){
+		$list_id   = $( "#list-name span" ).html();
+		var this_item = $(this).parent().parent().parent();
+		var item_name = this_item.find("h3").html();
+
+		$.ajax({
+            url: "deleteItem.php",
+            type: "POST",
+            data: { 
+            	"List_id": $list_id,
+            	"Item_name": item_name,
+            },
+            success: function(res){
+
+                if(res == "fail"){
+                    //alert(res);
+                    alert("Couldn't create list...sorry!");
+                }
+                //Moves to list page if successful
+                else{
+                	this_item.remove();
+                }
+            }
+        });
+    });
+
 </script>
